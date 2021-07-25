@@ -1,0 +1,70 @@
+#app {
+	font-family: Avenir, Helvetica, Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-align: center;
+	color: #2c3e50;
+	margin-top: 60px;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	width: 300px;
+	margin: 0 auto;
+	text-align: center;
+
+	& input,
+	& textarea,
+	& button {
+		margin-bottom: 1rem;
+	}
+
+	& textarea {
+		resize: none;
+		height: 100px;
+	}
+}
+
+
+p {
+    margin: 0;
+}
+
+.todo {
+    width: 350px;
+    margin: 0 auto;
+    padding: 1rem 0;
+    border: 1px solid black;
+    border-radius: 8px;
+    margin-bottom: 2.5rem;
+
+    &-finished {
+        border: 1px solid red;
+
+        & .todo__title {
+            text-decoration: line-through;
+        }
+    }
+
+    &__header {
+        font-size: 0.8rem;
+        margin-bottom: 0.5rem;
+    }
+
+    &__title {
+        font-size: 1.1rem;
+        margin-bottom: 0.8rem;
+        font-weight: bold;
+    }
+
+    &__description {
+        font-size: 0.9rem;
+        margin-bottom: 0.8rem;
+        opacity: 0.8;
+    }
+
+    &__done {
+        margin-right: 0.6rem;
+    }
+}
