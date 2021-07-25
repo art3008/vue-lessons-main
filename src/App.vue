@@ -1,10 +1,41 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div id="app">
+    <button @click="isVisible"> Открыть окно </button>
   </div>
-  <router-view/>
+
+  <div class="modal_window" v-show="visible">
+        <h2>Это модальное окно</h2>
+        <p>Привет пользователь</p>
+        <button @click="visible = !visible">Закрыть окно</button>
+  </div>
+  
 </template>
+
+
+<script>
+
+// import TestPage from './components/TestPage.vue';
+
+export default {
+  name: "AppHeader",
+  components: {
+      // TestPage
+  },
+
+  data: () => ({
+    visible: false
+  }),
+
+  methods: {
+    isVisible() {
+      this.visible = true
+
+    }
+  }
+}
+</script>
+
+
 
 <style lang="scss">
 #app {
@@ -13,18 +44,22 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
 
-#nav {
-  padding: 30px;
+  & .modal_window{
+    display: flex;
+  flex-direction: column;
+  background-color: #0f7650cf;
+  color: white;
+  margin: 0 auto;
+  width: 300px;
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+    & h2,
+    & input,
+    & button {
+      margin: 12px;
     }
   }
 }
+
+
 </style>
