@@ -3,8 +3,8 @@
         <p class="todo__header"> Задача № {{idx + 1}} </p>
         <p class="todo__title"> {{todo.title}} </p>
         <p class="todo__description"> {{todo.description}} </p>
-        <button class="todo__done" @click="toggleTodo"> {{todo.isFinished ? 'Возобновить' : 'Завершить'}} задачу</button>
-        <button class="todo__delete" @click="deleteTodo">Удалить задачу</button>
+        <b-button variant="outline-primary"  class="todo__done" @click="toggleTodo"> {{todo.isFinished ? 'Возобновить' : 'Завершить'}} задачу</b-button>
+        <b-button variant="outline-warning" class="todo__delete" @click="deleteTodo">Удалить задачу</b-button>
         <p class="todo__time"> {{todo.id | formatDate}} </p>
     </div>
 </template>

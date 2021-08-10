@@ -1,25 +1,34 @@
 <template>
   <div id="app">
 
-	  <!-- <b-button v-b-modal.modal-1 variant="primary">Button</b-button>
-
+	  <!-- <b-button v-b-modal.modal-1 variant="primary">Button</b-button> -->
+<!-- 
 		<b-modal id="modal-1" title="BootstrapVue">
 			<p class="my-4">Hello from modal!</p>
 		</b-modal> -->
 
-
-
-
     <h2>Мой список задач</h2>
 
     <div style="text-align: right; margin-bottom: 3rem">
-      <button @click="showFormFunction" v-show="!showForm">Добавить задачу</button>
+      <b-button v-b-modal.modal-1 variant="primary" @click="showFormFunction" v-show="!showForm">Добавить задачу</b-button>
 
       <form v-show="showForm" @submit.prevent="addTodo" class="form">
-        <input v-model.trim="title" type="text" placeholder="Заголовок">
-        <textarea v-model.trim="description" placeholder="Описание"></textarea>
-        <button type="submit">Добавить</button>
-        <button @click.prevent="cancel">Отмена</button>
+        <b-form-input
+			v-model.trim="title" type="text" placeholder="Заголовок не менее 5 символов"
+			:state="title.length>=5"
+			rows="3"
+			id="input-state"
+		>			
+		</b-form-input>
+        <b-form-textarea 
+			v-model.trim="description" placeholder="Описание не менее 10 символов"
+			:state="description.length >= 10"
+			rows="3"
+			id="textarea-state"
+		>
+		</b-form-textarea>
+        <b-button variant="success" type="submit">Добавить</b-button>
+        <b-button variant="danger" @click.prevent="cancel">Отмена</b-button>
       </form>
     </div>
 
